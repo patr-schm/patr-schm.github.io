@@ -28,6 +28,11 @@ body
   max-width: 900px;
 }
 
+.card
+{
+  margin-bottom: 5rem;
+}
+
 .project-type
 {
   font-size: 0.95rem;
