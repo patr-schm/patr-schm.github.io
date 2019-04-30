@@ -1,0 +1,44 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+body
+{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 1.15rem;
+  background-image: url("../images/cream_dust.png");
+}
+
+.icon-block
+{
+  padding: 0 15px;
+}
+.icon-block .material-icons
+{
+  font-size: inherit;
+}
+
+.container
+{
+  max-width: 900px;
+}
+
+.project-type
+{
+  font-size: 0.95rem;
+  font-weight: 800;
+  margin-bottom: -1.2rem;
+}
+
+.authors
+{
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-top: -0.3rem;
+  margin-bottom: 0.8rem;
+}
