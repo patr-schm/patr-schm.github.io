@@ -14,6 +14,11 @@ body
   background-image: url("../images/cream_dust.png");
 }
 
+header, footer
+{
+  background-image: url("../images/dark_dust.png");
+}
+
 .icon-block
 {
   padding: 0 15px;
@@ -69,4 +74,9 @@ span.my-badge
 .btn
 {
   margin-right: 0.5rem;
+}
+
+footer a
+{
+  color: #eeeeee;
 }
