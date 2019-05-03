@@ -42,10 +42,31 @@ body
   margin-bottom: -1.2rem;
 }
 
-.authors
+.footnote
 {
   font-size: 0.85rem;
-  font-style: italic;
-  margin-top: -0.3rem;
+}
+
+/* Modification of classes new and badge */
+div.my-badges
+{
+  margin-top: 0.4rem;
   margin-bottom: 0.8rem;
+}
+
+span.my-badge
+{
+  min-width: 3rem;
+  margin-right: 4px;
+  padding: 3px 6px;
+  text-align: center;
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: #fff;
+  border-radius: 2px;
+}
+
+.btn
+{
+  margin-right: 0.5rem;
 }
