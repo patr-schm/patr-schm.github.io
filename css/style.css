@@ -40,10 +40,22 @@ header, footer
   margin-right: 0.5rem;
 }
 
+.card .card-content p
+{
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.card .card-content
+{
+  padding-bottom: 8px;
+}
+
 .project-type
 {
   font-size: 0.95rem;
   font-weight: 800;
+  margin-top: 0.0rem;
   margin-bottom: -1.2rem;
 }
 
