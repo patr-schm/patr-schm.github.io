@@ -62,7 +62,7 @@
             <p> My research interests are in computer graphics and geometry processing, with a focus on surface parametrization.
                 I enjoy applying numerical optimization techniques to challenging real-world problems.
                 Currently, I am working on algorithms that generate high-quality maps between different surfaces.
-                Before that, I designed new algorithms for semi-automatic quad meshing (retopology).
+                Before that, I designed new methods for semi-automatic quad meshing (retopology).
             </p>
         </div>
 
@@ -92,13 +92,13 @@
                             </div>
                             <p>We propose an interactive retopology workflow for generating high quality quad meshes
                                 from unstructured triangle meshes.
-                                At every time, the user is provided with an automatically generated
+                                The user is constantly provided with an automatically generated
                                 quad mesh, which can be modified by iteratively adding high-level constraints.
                                 To achieve updates at interactive speeds, we use a multiresolution approach
                                 introducing both a novel decimation scheme and a coarse-to-fine mapping
                                 method.
                                 
-                                I contributed key ideas to the mapping step and implemented large parts of the system.
+                                I contributed the key ideas of the mapping step and implemented large parts of the system.
                             </p>
                             
                             <p class="footnote">
@@ -108,8 +108,8 @@
                             </p>
                         </div>
                         <div class="card-action">
-                            <a href="https://www.graphics.rwth-aachen.de/media/papers/esck2016_600dpi.pdf" class="btn orange" target="_blank">Paper</a>
-                            <a href="https://www.graphics.rwth-aachen.de/media/papers/esck2016_supplemental.pdf" class="btn orange" target="_blank">Supplement</a>
+                            <a href="https://www.graphics.rwth-aachen.de/media/papers/esck2016_600dpi.pdf" class="btn orange" target="_blank">Paper (PDF)</a>
+                            <a href="https://www.graphics.rwth-aachen.de/media/papers/esck2016_supplemental.pdf" class="btn orange" target="_blank">Supplement (PDF)</a>
                         </div>
                     </div>
                 </div>
@@ -128,16 +128,16 @@
                                 <span class="my-badge blue darken-2">OpenFlipper</span>
                             </div>
                             <p>
-                                In my Master Thesis, I developed a system that retrieves small surface patches from a database
-                                and embedds them on similarly curved regions of a target shape.
-                                Such patches carry user-defined information: e.g. feature curves to be used
+                                I developed a system which retrieves small surface patches from a database
+                                and embeds them on similarly curved regions of a target shape.
+                                Such patches carry user-defined information: e.g. feature curves than can be used
                                 as constraints in interactive quad meshing scenarios.
-                                I came up with a new algorithm, computing a smooth map from a surface patch to
-                                a specified target region without tearing or foldovers.
+                                I came up with a new algorithm, computing a smooth and injective map from each surface patch to
+                                a specified target region.
                                 </p>
                         </div>
                         <div class="card-action">
-                            PDF upon request
+                            <a href="files/thesis_patch_embedding_300.pdf" class="btn orange" target="_blank">Thesis (PDF)</a>
                         </div>
                     </div>
                 </div>
@@ -156,16 +156,22 @@
                                 <span class="my-badge blue darken-2">OpenFlipper</span>
                             </div>
                             <p>I adapted the
-                                <a href="https://www.graphics.rwth-aachen.de/publication/0344/" target="_blank" style="color: inherit">mixed-integer quadrangulation</a>
+                                mixed-integer quadrangulation<sup><span style="font-size: 1.0rem;">[2]</span></sup>
                                 algorithm to work within local surface regions.
-                                This modification allows for faster updates and more controlled user interactions
-                                by limiting their effect to the desired area.
-                                <!--This local setting comes with new challenges, in terms of singularity placement and constrained parametrization,
-                                that are not present in the original formulation.-->
+                                This modification allows for faster updates and more controlled user interactions.
+                                The local setting comes with new challenges, in terms of singularity placement and constrained parametrization,
+                                that are not present in the original formulation.
                                 </p>
+                            <p class="footnote">
+                                <sup>[2]</sup>
+                                <a href="https://www.graphics.rwth-aachen.de/publication/0344/" target="_blank" style="color: inherit">
+                                    "Mixed-Integer Quadrangulation". David Bommes, Henrik Zimmer, Leif Kobbelt.
+                                    2009. ACM Transactions on Graphics.
+                                </a>
+                            </p>
                         </div>
                         <div class="card-action">
-                            PDF upon request
+                            <a href="files/thesis_local_quad_300.pdf" class="btn orange" target="_blank">Thesis (PDF)</a>
                         </div>
                     </div>
                 </div>
@@ -175,19 +181,20 @@
                         <img class="responsive-img" src="images/integrable.png" style="margin-top: 1.7rem; margin-bottom: -1.0rem;"/>
                         <div class="card-content">
                             <h6 class="blue-text text-darken-2 project-type">Course Report (2016)</h6>
-                            <h3 class="card-title">Seminar Report on Integrable Polyvector Fields<sup><span style="font-size: 1.0rem;">[1]</span></sup></h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                                    laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <h3 class="card-title">Seminar Report on Integrable PolyVector Fields<sup><span style="font-size: 1.0rem;">[3]</span></sup></h3>
+                            <p>As part of a literature seminar, I explored a formulation for vector fields on surfaces
+                                via complex polynomials. I wrote a detailed report, explaining the method in the context
+                                of parametrization based quad meshing.</p>
                             <p class="footnote">
-                                <sup>[1]</sup>
-                                "Integrable PolyVector Fields". Olga Diamanti, Amir Vaxman, Daniele Panozzo, Olga Sorkine-Hornung.
-                                2015. ACM Transactions on Graphics.
+                                <sup>[3]</sup>
+                                <a href="https://igl.ethz.ch/projects/integrable/" target="_blank" style="color: inherit">
+                                    "Integrable PolyVector Fields". Olga Diamanti, Amir Vaxman, Daniele Panozzo, Olga Sorkine-Hornung.
+                                    2015. ACM Transactions on Graphics.
+                                </a>
                             </p>
                         </div>
                         <div class="card-action">
-                            <a href="files/report_integrable_final.pdf" class="btn orange" target="_blank">Report</a>
+                            <a href="files/report_integrable.pdf" class="btn orange" target="_blank">Report (PDF)</a>
                         </div>
                     </div>
                 </div>
@@ -201,7 +208,7 @@
         <div class="section">
             <h2>Learning Projects</h2>
 
-            <p>This section shows a few smaller projects I created to learn more about a topic.</p>
+            <p>This section shows smaller projects I created to learn more about a topic.</p>
             <div class="row">
 
                 <div class="col s12 m6 l6">
@@ -218,10 +225,9 @@
                             <p> I implemented an educational software renderer in Python.
                             </p>
                             <p>
-                                It demonstrates the core computations that are essential to a forward rendering
-                                pipeline&mdash;with all performance related details stripped away.
-                                Using only NumPy as a library, it implements some key steps usually provided by
-                                an API such as OpenGL (e.g. rasterization, depth test and perspectively correct interpolation).
+                                Using only NumPy as a library, it demonstrates the core computations of a forward
+                                rendering pipeline: e.g. perspective transformations, rasterization,
+                                perspectively correct interpolation, depth test and shading.
                             </p>
                         </div>
                         <div class="card-action">
@@ -274,10 +280,11 @@
                                 <span class="my-badge blue darken-2">C++</span>
                                 <span class="my-badge blue darken-2">OpenGL</span>
                             </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                                    laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <p>I implemented a rigid body physics simulation in C++.
+                                It includes real-time collision handling between multiple objects, static and dynamic friction
+                                as well as robust stacking via contact graphs.
+                                </p>
+                            <br>
                         </div>
                     </div>
                 </div>
@@ -295,14 +302,15 @@
                                 <span class="my-badge blue darken-2">wxWidgets</span>
                                 <span class="my-badge blue darken-2">Ogre3D Engine</span>
                             </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                                    laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <p>As an intern at <a href="https://www.fahrsimulatoren.eu" target="_blank" style="color: inherit">FOERST Driving Simulators</a>,
+                                I implemented a tile-based level editor for virtual cities.
+                                The editor supports various editing operations across multiple 2D and 3D views,
+                                undo/redo functionality and export to the driving simulation software.
+                            </p>
                         </div>
                         <div class="card-action">
-                                <a href="https://www.fahrsimulatoren.eu/images/pdf/Softwareanleitungen/WorldEditor.pdf" class="btn orange" target="_blank">Documentation</a>
-                            </div>
+                            <a href="https://www.fahrsimulatoren.eu/images/pdf/Softwareanleitungen/WorldEditor.pdf" class="btn orange" target="_blank">Documentation (PDF)</a>
+                        </div>
                     </div>
                 </div>
 
@@ -312,16 +320,17 @@
                                     <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/sUOBSaZ5HyI" frameborder="0" allowfullscreen></iframe>
                             </div>
                             <div class="card-content">
-                                <h6 class="blue-text text-darken-2 project-type">Personal Project (2011)</h6>
+                                <h6 class="blue-text text-darken-2 project-type">Personal Project (2010)</h6>
                                 <h3 class="card-title">Guitar Chords App</h3>
                                 <div class="my-badges">
                                     <span class="my-badge blue darken-2">C#</span>
                                     <span class="my-badge blue darken-2">.NET</span>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                                        laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                <p>As a high school student, I developed a guitar chords app for Windows Phone 7, right after the release of the OS.
+                                    It supports browsing a library of chords, automatically generating audio samples and
+                                    submitting new user-created chords to the library.
+                                    Microsoft supported the development by providing me with a pre-release test device.
+                                </p>
                             </div>
                             <div class="card-action">
                                     <a href="https://www.microsoft.com/en-us/p/guitar-chords/9wzdncrfj2l8" target="_blank" class="btn orange">App</a>
