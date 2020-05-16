@@ -28,16 +28,20 @@ header, footer
   font-size: inherit;
 }
 
+i.fa, i.fab {
+  color: #505050;
+}
+
 .container
 {
-  max-width: 900px;
+  max-width: 1000px;
 }
 
 .card
 {
   margin-bottom: 5rem;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+  margin-left: 0.0rem;
+  margin-right: 0.0rem;
 }
 
 .card .card-content p
@@ -85,6 +89,8 @@ span.my-badge
 
 .btn
 {
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
   margin-right: 0.5rem;
 }
 
