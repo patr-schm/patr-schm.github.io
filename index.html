@@ -112,6 +112,7 @@
             <br>
 
             <div class="row">
+
                 <div class="col s12 l6">
                     <div class="card white z-depth-4">
                         <div class="video-container">
@@ -121,8 +122,9 @@
                             <h6 class="blue-text text-darken-2 project-type">Publication at SIGGRAPH 2020</h6>
                             <h3 class="card-title">Inter-Surface Maps via Constant-Curvature Metrics</h3>
                             <div class="my-badges">
-                                <span class="my-badge blue darken-2">Publication</span>
                                 <span class="my-badge blue darken-2">Geometry</span>
+                                <span class="my-badge blue darken-2">Inter-Surface&nbsp;Map</span>
+                                <span class="my-badge blue darken-2">Bijective</span>
                                 <span class="my-badge blue darken-2">Optimization</span>
                                 <span class="my-badge blue darken-2">C++</span>
                             </div>
@@ -150,7 +152,6 @@
 
                 <div class="col s12 l6">
                     <div class="card white z-depth-4">
-                        <!--<img class="responsive-img" src="images/surface-maps.jpg" style="margin-top: 1.0rem; margin-bottom: -0.5rem"/>-->
                         <div class="video-container">
                             <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/qju--ovdgyo?cc_load_policy=1" frameborder="0" allowfullscreen></iframe>
                         </div>
@@ -158,18 +159,15 @@
                             <h6 class="blue-text text-darken-2 project-type">Publication at SIGGRAPH Asia 2019</h6>
                             <h3 class="card-title">Distortion-Minimizing Injective Maps Between Surfaces</h3>
                             <div class="my-badges">
-                                <span class="my-badge blue darken-2">Publication</span>
                                 <span class="my-badge blue darken-2">Geometry</span>
+                                <span class="my-badge blue darken-2">Inter-Surface&nbsp;Map</span>
+                                <span class="my-badge blue darken-2">Injective</span>
+                                <span class="my-badge blue darken-2">Distortion</span>
                                 <span class="my-badge blue darken-2">Optimization</span>
                                 <span class="my-badge blue darken-2">C++</span>
                             </div>
                             <p>
                                 We compute injective maps between disk-topology surfaces by overlaying two parametrizations. Instead of optimizing both parametrizations individually, we show how to directly minimize distortion in the composed surface-to-surface map.
-                                <!--We provide a formulation that yields a map between two disk-topology meshes and locally minimizes intrinsic distortion.
-                                As the composition of two planar parametrizations, our map is continuous and injective by construction.
-                                Instead of optimizing both parametrizations individually, we are able to directly minimize distortion of the composed map in an end-to-end manner.
-                                Despite the additional challenges posed by both the source and target domain being discrete,
-                                we show that surface-to-surface maps can be optimized effectively.-->
                             </p>
 
                             <p class="footnote">
@@ -184,9 +182,40 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
 
             <div class=row>
+
+                <div class="col s12 l6">
+                    <div class="card white z-depth-4">
+                        <img class="responsive-img" src="images/layout-embedding.png" />
+                        <div class="card-content" style="margin-top: -1.5rem;">
+                            <h6 class="blue-text text-darken-2 project-type">Publication at Eurographics 2021</h6>
+                            <h3 class="card-title">Layout Embedding via Combinatorial Optimization</h3>
+                            <div class="my-badges">
+                                <span class="my-badge blue darken-2">Topology</span>
+                                <span class="my-badge blue darken-2">Discrete&nbspOptimization</span>
+                                <span class="my-badge blue darken-2">C++</span>
+                            </div>
+                            <p>
+                                Embedding an abstract mesh connectivity into a surface is challenging,
+                                as avoiding intersections can easily cause excessively long paths.
+                                We compute an optimal order of shortest path insertions, minimizing total embedding length.
+                                The algorithm is used e.g. to prevent topological swirls in inter-surface map initialization.
+                            </p>
+
+                            <p class="footnote">
+                                Janis Born, <b>Patrick Schmidt</b>, Leif Kobbelt.
+                                2021. Computer Graphics Forum.
+                            </p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#" class="btn orange" target="_blank">Paper (PDF)</a>
+                            <a href="#" class="btn orange" target="_blank">Code (Github)</a>
+                        </div>
+                    </div>
+                </div>
                 <div class="col s12 l6">
                     <div class="card white z-depth-4">
                         <div class="video-container">
@@ -196,8 +225,9 @@
                             <h6 class="blue-text text-darken-2 project-type">Publication at SIGGRAPH Asia 2016</h6>
                             <h3 class="card-title">Interactively Controlled Quad Remeshing of High Resolution 3D Models</h3>
                             <div class="my-badges">
-                                <span class="my-badge blue darken-2">Publication</span>
-                                <span class="my-badge blue darken-2">Geometry</span>
+                                <span class="my-badge blue darken-2">Quad&nbsp;Meshing</span>
+                                <span class="my-badge blue darken-2">Retopology</span>
+                                <span class="my-badge blue darken-2">Interactive</span>
                                 <span class="my-badge blue darken-2">C++</span>
                             </div>
                             <p>We propose an interactive retopology workflow for generating high quality quad meshes
@@ -207,8 +237,6 @@
                                 To achieve updates at interactive speeds, we use a multiresolution approach and
                                 introduce both a novel decimation scheme and a coarse-to-fine mapping
                                 method.
-                                
-                                <!--I contributed key ideas to the mapping step and implemented large parts of the system.-->
                             </p>
                             
                             <p class="footnote">
@@ -223,6 +251,10 @@
                     </div>
                 </div>
 
+            </div>
+
+            <div class="row">
+
                 <div class="col s12 l6">
                     <div class="card white z-depth-4">
                         <img class="responsive-img" src="images/macro-constraints.png" style="margin-top: 2rem;"/>
@@ -230,11 +262,12 @@
                             <h6 class="blue-text text-darken-2 project-type">Master Thesis (2017)</h6>
                             <h3 class="card-title">Retrieval and Re-Embedding of Macro Constraints for Parametrization Based Quad Meshing</h3>
                             <div class="my-badges">
+                                <span class="my-badge blue darken-2">Inter-Surface&nbsp;Map</span>
+                                <span class="my-badge blue darken-2">Injective</span>
+                                <span class="my-badge blue darken-2">Shape&nbsp;Correspondence</span>
+                                <span class="my-badge blue darken-2">Quad Meshing</span>
+                                <span class="my-badge blue darken-2">Interactive</span>
                                 <span class="my-badge blue darken-2">C++</span>
-                                <span class="my-badge blue darken-2">Python</span>
-                                <span class="my-badge blue darken-2">Matlab</span>
-                                <span class="my-badge blue darken-2">OpenMesh</span>
-                                <span class="my-badge blue darken-2">OpenFlipper</span>
                             </div>
                             <p>
                                 I developed a system that retrieves small surface patches from a database
@@ -250,9 +283,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="row">
                 <div class="col s12 l6">
                     <div class="card white z-depth-4">
                         <div class="video-container">
@@ -262,9 +293,9 @@
                             <h6 class="blue-text text-darken-2 project-type">Bachelor Thesis (2014)</h6>
                             <h3 class="card-title">Towards Interactive Quadrangulation through Local Remeshing</h3>
                             <div class="my-badges">
+                                <span class="my-badge blue darken-2">Quad&nbsp;Meshing</span>
+                                <span class="my-badge blue darken-2">Interactive</span>
                                 <span class="my-badge blue darken-2">C++</span>
-                                <span class="my-badge blue darken-2">OpenMesh</span>
-                                <span class="my-badge blue darken-2">OpenFlipper</span>
                             </div>
                             <p>I adapted the
                                 mixed-integer quadrangulation algorithm<sup><span style="font-size: 1.0rem;">[1]</span></sup>
@@ -293,7 +324,7 @@
 
         <div class="divider"></div>
         <!-- Software -->
-<!--
+
         <div class="section">
             <h2>Software</h2>
 
@@ -303,7 +334,7 @@
 
                 <div class="col s12 l6">
                     <div class="card white z-depth-4">
-                        <img class="responsive-img" src="images/tiniad_crop.png" alt="TinyAD Automatic Differentiation" style="padding: 1rem 2rem 0rem 2rem;"/>
+                        <img class="responsive-img" src="images/tiniad_crop.png" alt="TinyAD Automatic Differentiation" style="padding: 1.5rem 5rem 0rem 5rem;"/>
                         <div class="card-content" style="margin-top: -1rem;">
                             <h6 class="blue-text text-darken-2 project-type">C++ Library (2021)</h6>
                             <h3 class="card-title">TinyAD</h3>
@@ -329,12 +360,12 @@
         </div>
 
         <div class="divider"></div>
--->
+
         <!-- Projects -->
         <div class="section">
             <h2>Other Projects</h2>
 
-            <p>This section includes small projects that I created to learn more about a topic and a few old undergrad projects.</p>
+            <p>This section includes small projects that I created to learn more about a topic, as well as a few old undergrad projects.</p>
             <div class="row">
 
                 <div class="col s12 l6">
