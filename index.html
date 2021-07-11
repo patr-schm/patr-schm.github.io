@@ -113,42 +113,48 @@
 
             <div class="row">
 
-                <!--
+<!--
                 <div class="col s12 l6">
                     <div class="card white z-depth-4">
-                        <img class="responsive-img" src="images/layout-embedding.png" />
-                        <div class="card-content" style="margin-top: -1.5rem;">
-                            <h6 class="blue-text text-darken-2 project-type">Publication at Eurographics 2021</h6>
-                            <h3 class="card-title">Layout Embedding via Combinatorial Optimization</h3>
+                        <div style="overflow: hidden;">
+                            <div class="video-container"
+                            style="position: relative; top: 2px; margin-top: -2px">
+                                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jMWJ79EpyfQ" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="card-content" style="margin-top: -1.0rem;">
+                            <h6 class="blue-text text-darken-2 project-type">Course at Symposium on Geometry Processing 2021 Graduate School</h6>
+                            <h3 class="card-title">Maps Between Surfaces</h3>
                             <div class="my-badges">
-                                <span class="my-badge blue darken-2">Topology</span>
-                                <span class="my-badge blue darken-2">Discrete&nbspOptimization</span>
-                                <span class="my-badge blue darken-2">C++</span>
+                                <span class="my-badge blue darken-2">Surface Maps</span>
+                                <span class="my-badge blue darken-2">Bijective</span>
+                                <span class="my-badge blue darken-2"> Representation</span>
+                                <span class="my-badge blue darken-2"> Construction</span>
+                                <span class="my-badge blue darken-2"> Optimization</span>
                             </div>
                             <p>
-                                Embedding an abstract mesh connectivity into a surface is challenging,
-                                as avoiding intersections can easily cause excessively long paths.
-                                We compute an optimal order of shortest path insertions that minimizes total embedding length.
-                                The algorithm is used e.g. to prevent topological swirls in inter-surface map initialization.
+                                Marcel Campen and I have a course on surface maps at SGP2021.
+                                We give an overview of how to (1) computationally represent, (2) initially construct, and (3) numerically optimize maps.
+                                In particular we focus on the class of surface homeomorphisms: maps that are continuous and bijective and thus can be used to faithfully transfer various kinds of surface data.
+                                Starting from the well-studied case of maps in the plane, we work our way up to maps between 3D surfaces.
                             </p>
 
                             <p class="footnote">
-                                Janis Born, <b>Patrick Schmidt</b>, Leif Kobbelt.
-                                2021. Computer Graphics Forum.
+                                Marcel Campen, <b>Patrick Schmidt</b>.
+                                2021. Symposium on Geometry Processing Graduate School.
                             </p>
                         </div>
                         <div class="card-action">
-                            <a href="https://graphics.rwth-aachen.de/media/papers/329/layoutembedding.pdf" class="btn orange" target="_blank">Paper (PDF)</a>
-                            <a href="https://github.com/jsb/LayoutEmbedding" class="btn orange" target="_blank">Code (Github)</a>
+                            <a href="https://www.youtube.com/watch?v=jMWJ79EpyfQ" class="btn orange" target="_blank">Course (YouTube)</a>
                         </div>
                     </div>
                 </div>
-                -->
+-->
 
                 <div class="col s12 l6">
                     <div class="card white z-depth-4">
                         <img class="responsive-img" src="images/surface-map-homology-inference.png" />
-                        <div class="card-content" style="margin-top: -1.5rem;">
+                        <div class="card-content" style="margin-top: -1.0rem;">
                             <h6 class="blue-text text-darken-2 project-type">Publication at Symposium on Geometry Processing 2021</h6>
                             <h3 class="card-title">Surface Map Homology Inference</h3>
                             <div class="my-badges">
@@ -157,7 +163,7 @@
                                 <span class="my-badge blue darken-2">Surface&nbsp;Map</span>
                             </div>
                             <p>
-                                A continuous and bijective map does not only determine a geometrical, but also a topological correspondence between two surfaces: It matches handles and tunnels and determines how paths twist around them.
+                                A continuous and bijective map between surfaces does not only determine a geometrical, but also a topological correspondence: It matches handles and tunnels and determines how paths twist around them.
                                 Many practical map representations (e.g. sampled maps) do not explicitly capture such aspects and can be topologically ambiguous in the presence of noise, outliers, or undersampling.
                                 We present a method to robustly infer topological information (a homology map) from an imperfect input map.
                             </p>
