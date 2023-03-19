@@ -93,10 +93,10 @@
                         at <a href="https://www.rwth-aachen.de" target="_blank">RWTH Aachen University</a>, Germany, where I work with Professor
                         <a href="https://www.graphics.rwth-aachen.de/person/3/" target="_blank">Leif Kobbelt</a>.
                     </p>
-                    <p> My research interests are in computer graphics and geometry processing, with a focus on surface parametrization.
-                        I enjoy applying numerical optimization techniques to geometric problems that have applications in 3D modeling, engineering, and other disciplines.
-                        Currently, I am working on algorithms that generate high-quality maps between different surfaces.
-                        Before that, I designed new methods for semi-automatic quad meshing (retopology).
+                    <p> My research interests are in computer graphics and geometry processing.
+                    I enjoy applying numerical optimization techniques to different geometric problems with applications in 3D modeling, engineering, biology and other fields.
+                    During my PhD, I have been working on algorithms that generate high-quality maps between surfaces and have developed a tool that makes automatic differentiation in geometry processing more accessible.
+                    Before that, I have also worked on methods for semi-automatic quad meshing (retopology).
                     </p>
                 </div>
             </div>
@@ -116,6 +116,34 @@
 
                 <div class="col s12 l6">
                     <div class="card white z-depth-4">
+                        <div style="padding-left: 0.5rem; padding-top: 0.65rem">
+                        	<img class="responsive-img" src="images/surface-maps-via-adapative-triangulations.png" />
+                		</div>
+
+                        <div class="card-content" style="margin-top: -1.0rem;">
+                            <h6 class="blue-text text-darken-2 project-type">Publication at Eurographics 2023</h6>
+                            <h3 class="card-title">Surface Maps via Adaptive Triangulations</h3>
+                            <p>
+                                We compute bijective maps between genus-0 surfaces at adaptive resolutions, independently of the input mesh complexity.
+                                The new idea is to represent maps via a common triangulation that only approximates the input surfaces but stays in bijective correspondence to them (via spherical parametrizations).
+                                Treating both the connectivity and the geometric embeddings of this triangulation as degrees of freedom allows us to quickly optimize maps in a coarse-to-fine manner.
+                                In contrast to previous methods, we manage to avoid the costly computation of overlay meshes and also support mapping between more than two surfaces at once.
+                            </p>
+
+                            <p class="footnote">
+                                <b>Patrick Schmidt</b>, Dörte Pieper, Leif Kobbelt.
+                                2023. Computer Graphics Forum.
+                            </p>
+                        </div>
+                        <div class="card-action">
+                            <a href="https://graphics.rwth-aachen.de/media/papers/345/surface-maps-via-adaptive-triangulations.pdf" class="btn orange" target="_blank">Paper (PDF)</a>
+                            <a href="https://github.com/patr-schm/surface-maps-via-adaptive-triangulations" class="btn orange" target="_blank">Code (GitHub)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col s12 l6">
+                    <div class="card white z-depth-4">
                         <div style="overflow: hidden;">
                             <div class="video-container"
                             style="position: relative; top: 2px; margin-top: -2px">
@@ -125,12 +153,12 @@
                         <div class="card-content" style="margin-top: -1.0rem;">
                             <h6 class="blue-text text-darken-2 project-type">Publication at Symposium on Geometry Processing 2022</h6>
                             <h3 class="card-title">TinyAD: Automatic Differentiation in Geometry Processing Made Simple</h3>
-                            <div class="my-badges">
+                            <!-- <div class="my-badges">
                                 <span class="my-badge blue darken-2">Automatic Differentiation</span>
                                 <span class="my-badge blue darken-2">C++</span>
                                 <span class="my-badge blue darken-2"> Library</span>
                                 <span class="my-badge blue darken-2"> Non-Linear Optimization</span>
-                            </div>
+                            </div> -->
                             <p>
                                 At SGP 2022, we published TinyAD: a lightweight C++ library for automatic differentiation in geometry processing.
                                	It computes first and second order derivatives of sparse problems on meshes, by differentiating small subproblems efficiently.
@@ -155,6 +183,10 @@
                         </div>
                     </div>
                 </div>
+                
+            </div>
+
+            <div class="row">
 
                 <div class="col s12 l6">
                     <div class="card white z-depth-4">
@@ -165,11 +197,11 @@
                         <div class="card-content" style="margin-top: -1.0rem;">
                             <h6 class="blue-text text-darken-2 project-type">Publication in Nature Cardiovascular Research 2022</h6>
                             <h3 class="card-title">Pseudodynamic analysis of heart tube formation in the mouse reveals strong regional variability and early left–right asymmetry</h3>
-                            <div class="my-badges">
+                            <!-- <div class="my-badges">
                                 <span class="my-badge blue darken-2">Developmental Biology</span>
                                 <span class="my-badge blue darken-2">Interdisciplinary</span>
                                 <span class="my-badge blue darken-2">Surface&nbsp;Maps</span>
-                            </div>
+                            </div> -->
                             <p>
                                 In a collaboration with <a href="https://www.cnic.es/en/investigacion/genetic-control-organ-development-and-regeneration" target="_blank">CNIC Madrid</a>, we used surface mapping techniques to study the geometry of heart morphogenesis in mice.
                                 In the early mouse embryo, an initially flat piece of tissue develops into a heart tube within a time window of ~18 hours.
@@ -187,10 +219,6 @@
                         </div>
                     </div>
                 </div>
-                
-            </div>
-
-            <div class="row">
 
                 <div class="col s12 l6">
                     <div class="card white z-depth-4">
@@ -203,13 +231,13 @@
                         <div class="card-content" style="margin-top: -1.0rem;">
                             <h6 class="blue-text text-darken-2 project-type">Course at Symposium on Geometry Processing 2021 Graduate School</h6>
                             <h3 class="card-title">Maps Between Surfaces</h3>
-                            <div class="my-badges">
+                            <!-- <div class="my-badges">
                                 <span class="my-badge blue darken-2">Surface Maps</span>
                                 <span class="my-badge blue darken-2">Bijective</span>
                                 <span class="my-badge blue darken-2"> Representation</span>
                                 <span class="my-badge blue darken-2"> Construction</span>
                                 <span class="my-badge blue darken-2"> Optimization</span>
-                            </div>
+                            </div> -->
                             <p>
                                 Together with <a href="http://graphics.cs.uos.de/" target="_blank">Marcel Campen</a> I gave a course on maps between surfaces at SGP 2021.
                                 We explained how to (1) computationally represent, (2) initially construct, and (3) numerically optimize maps.
@@ -228,17 +256,21 @@
                     </div>
                 </div>
 
+            </div>
+
+            <div class="row">
+
                 <div class="col s12 l6">
                     <div class="card white z-depth-4">
                         <img class="responsive-img" src="images/surface-map-homology-inference.png" />
                         <div class="card-content" style="margin-top: -1.0rem;">
                             <h6 class="blue-text text-darken-2 project-type">Publication at Symposium on Geometry Processing 2021</h6>
                             <h3 class="card-title">Surface Map Homology Inference</h3>
-                            <div class="my-badges">
+                            <!-- <div class="my-badges">
                                 <span class="my-badge blue darken-2">Topology</span>
                                 <span class="my-badge blue darken-2">Differential Geometry</span>
                                 <span class="my-badge blue darken-2">Surface&nbsp;Map</span>
-                            </div>
+                            </div> -->
                             <p>
                                 A continuous and bijective map between surfaces does not only determine a geometrical, but also a topological correspondence: It matches handles and tunnels and determines how paths twist around them.
                                 Many practical map representations (e.g. sampled maps) do not explicitly capture such aspects and can be topologically ambiguous in the presence of noise, outliers, or undersampling.
@@ -263,10 +295,6 @@
                         </div>
                     </div>
                 </div>
-                
-            </div>
-
-            <div class="row">
 
                 <div class="col s12 l6">
                     <div class="card white z-depth-4">
@@ -274,11 +302,11 @@
                         <div class="card-content" style="margin-top: -1.5rem;">
                             <h6 class="blue-text text-darken-2 project-type">Publication at Eurographics 2021</h6>
                             <h3 class="card-title">Layout Embedding via Combinatorial Optimization</h3>
-                            <div class="my-badges">
+                            <!-- <div class="my-badges">
                                 <span class="my-badge blue darken-2">Topology</span>
                                 <span class="my-badge blue darken-2">Discrete&nbspOptimization</span>
                                 <span class="my-badge blue darken-2">C++</span>
-                            </div>
+                            </div> -->
                             <p>
                                 Embedding an abstract mesh connectivity into a surface is challenging,
                                 as avoiding intersections can easily cause excessively long paths.
@@ -302,6 +330,10 @@
                     </div>
                 </div>
 
+            </div>
+
+            <div class="row">
+
                 <div class="col s12 l6">
                     <div class="card white z-depth-4">
                         <div class="video-container">
@@ -310,13 +342,13 @@
                         <div class="card-content">
                             <h6 class="blue-text text-darken-2 project-type">Publication at SIGGRAPH 2020</h6>
                             <h3 class="card-title">Inter-Surface Maps via Constant-Curvature Metrics</h3>
-                            <div class="my-badges">
+                            <!-- <div class="my-badges">
                                 <span class="my-badge blue darken-2">Geometry</span>
                                 <span class="my-badge blue darken-2">Inter-Surface&nbsp;Map</span>
                                 <span class="my-badge blue darken-2">Bijective</span>
                                 <span class="my-badge blue darken-2">Continuous Optimization</span>
                                 <span class="my-badge blue darken-2">C++</span>
-                            </div>
+                            </div> -->
                             <p>
                                 We introduce a novel representation of maps between closed triangle meshes of the same genus.
                                 Our maps are guaranteed to be continuous, bijective and defined at every surface point.
@@ -338,10 +370,6 @@
                         </div>
                     </div>
                 </div>
-                
-            </div>
-
-            <div class=row>
 
                 <div class="col s12 l6">
                     <div class="card white z-depth-4">
@@ -351,14 +379,14 @@
                         <div class="card-content">
                             <h6 class="blue-text text-darken-2 project-type">Publication at SIGGRAPH Asia 2019</h6>
                             <h3 class="card-title">Distortion-Minimizing Injective Maps Between Surfaces</h3>
-                            <div class="my-badges">
+                            <!-- <div class="my-badges">
                                 <span class="my-badge blue darken-2">Geometry</span>
                                 <span class="my-badge blue darken-2">Inter-Surface&nbsp;Map</span>
                                 <span class="my-badge blue darken-2">Injective</span>
                                 <span class="my-badge blue darken-2">Distortion</span>
                                 <span class="my-badge blue darken-2">Continuous Optimization</span>
                                 <span class="my-badge blue darken-2">C++</span>
-                            </div>
+                            </div> -->
                             <p>
                                 We compute injective maps between disk-topology surfaces by overlaying two parametrizations. Instead of optimizing both parametrizations individually, we show how to directly minimize distortion in the composed surface-to-surface map.
                             </p>
@@ -376,6 +404,10 @@
                     </div>
                 </div>
 
+            </div>
+
+            <div class="row">
+
                 <div class="col s12 l6">
                     <div class="card white z-depth-4">
                         <div class="video-container">
@@ -384,12 +416,12 @@
                         <div class="card-content">
                             <h6 class="blue-text text-darken-2 project-type">Publication at SIGGRAPH Asia 2016</h6>
                             <h3 class="card-title">Interactively Controlled Quad Remeshing of High Resolution 3D Models</h3>
-                            <div class="my-badges">
+                            <!-- <div class="my-badges">
                                 <span class="my-badge blue darken-2">Quad&nbsp;Meshing</span>
                                 <span class="my-badge blue darken-2">Retopology</span>
                                 <span class="my-badge blue darken-2">Interactive</span>
                                 <span class="my-badge blue darken-2">C++</span>
-                            </div>
+                            </div> -->
                             <p>We propose an interactive retopology workflow for generating high quality quad meshes
                                 from unstructured triangle meshes.
                                 The user is constantly provided with an automatically generated
@@ -411,24 +443,20 @@
                     </div>
                 </div>
 
-            </div>
-
-            <div class="row">
-
                 <div class="col s12 l6">
                     <div class="card white z-depth-4">
                         <img class="responsive-img" src="images/macro-constraints.png" style="margin-top: 2rem;"/>
                         <div class="card-content">
                             <h6 class="blue-text text-darken-2 project-type">Master Thesis (2017)</h6>
                             <h3 class="card-title">Retrieval and Re-Embedding of Macro Constraints for Parametrization Based Quad Meshing</h3>
-                            <div class="my-badges">
+                            <!-- <div class="my-badges">
                                 <span class="my-badge blue darken-2">Inter-Surface&nbsp;Map</span>
                                 <span class="my-badge blue darken-2">Injective</span>
                                 <span class="my-badge blue darken-2">Shape&nbsp;Correspondence</span>
                                 <span class="my-badge blue darken-2">Quad Meshing</span>
                                 <span class="my-badge blue darken-2">Interactive</span>
                                 <span class="my-badge blue darken-2">C++</span>
-                            </div>
+                            </div> -->
                             <p>
                                 I developed a system that retrieves small surface patches from a database
                                 and embeds them on similarly curved regions of a target shape.
@@ -444,6 +472,10 @@
                     </div>
                 </div>
 
+            </div>
+
+            <div class="row">
+
                 <div class="col s12 l6">
                     <div class="card white z-depth-4">
                         <div class="video-container">
@@ -452,11 +484,11 @@
                         <div class="card-content">
                             <h6 class="blue-text text-darken-2 project-type">Bachelor Thesis (2014)</h6>
                             <h3 class="card-title">Towards Interactive Quadrangulation through Local Remeshing</h3>
-                            <div class="my-badges">
+                            <!-- <div class="my-badges">
                                 <span class="my-badge blue darken-2">Quad&nbsp;Meshing</span>
                                 <span class="my-badge blue darken-2">Interactive</span>
                                 <span class="my-badge blue darken-2">C++</span>
-                            </div>
+                            </div> -->
                             <p>I adapted the
                                 mixed-integer quadrangulation algorithm<sup><span style="font-size: 1.0rem;">[1]</span></sup>
                                 to work within local surface regions.
