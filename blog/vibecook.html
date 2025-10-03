@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="Patrick Schmidt" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    
+    <title>VibeCook &ndash; Patrick Schmidt</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+
+    <style>
+        .blog-article {
+            max-width: 760px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-size: 1rem; /* locally override global body font-size (1.15rem) */
+        }
+        .blog-title {
+            margin-top: 0.0rem;
+            margin-bottom: 0.2rem;
+        }
+        .blog-article h1 {
+            font-size: 3rem;
+        }
+        .blog-meta {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 2.0rem;
+        }
+        .blog-article h2 {
+            margin-top: 2.2rem;
+            margin-bottom: 0.6rem;
+            font-size: 2.25rem;
+        }
+        .blog-figure {
+            margin: 0.2rem 0 1.0rem 0;
+        }
+        .blog-figure figcaption {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+            text-align: center;
+        }
+        .blog-figure video {
+            border: none;
+            border-radius: 2px;
+            box-shadow: 0 1px 8px rgba(0, 0, 0, 0.18);
+        }
+        /* Apply the same subtle shadow to all images/videos within the article */
+        .blog-article img,
+        .blog-article video {
+            border: none;
+            border-radius: 2px;
+            box-shadow: 0 1px 8px rgba(0, 0, 0, 0.18);
+        }
+        .float-left, .float-right {
+            width: 25%;
+        }
+        .float-left {
+            float: left;
+            margin: 0.2rem 1.2rem 1.0rem 0;
+        }
+        .float-right {
+            float: right;
+            margin: 0.2rem 0 1.0rem 1.2rem;
+        }
+        @media (max-width: 992px) {
+            .float-left, .float-right {
+                float: none;
+                width: 100%;
+                margin: 0 0 1.0rem 0;
+            }
+        }
+
+        
+    </style>
+
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/afdf2b8811.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="grey lighten-4 grey-text text-darken-3">
+
+
+    <!-- Banner -->
+    <header class="section grey darken-4" id="index-banner">
+        <div class="container">
+            <h1 class="header center grey-text text-lighten-5", style="font-size: 3.0rem; margin-top: 20px; margin-bottom: 20px;">Patrick Schmidt</h1>
+        </div>
+    </header>
+
+    <br><br>
+
+    <div class="container">
+        <div class="section">
+            <article class="blog-article">
+
+                <h1 class="blog-title">VibeCook Recipe App</h1>
+                <p class="blog-meta">October 3, 2025</p>
+
+                <div class="row">
+                    <div class="col s12 m4 offset-m2 offset-l2">
+                        <figure class="blog-figure">
+                            <img src="img/input_risotto.jpg" class="responsive-img">
+                            <figcaption>User Recipe Prompt</figcaption>
+                        </figure>
+                    </div>
+                    <div class="col s12 m4">
+                        <figure class="blog-figure">
+                            <video controls autoplay muted loop playsinline style="width: 100%; height: auto;">
+                                <source src="img/graph_and_cookmode_risotto.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <figcaption>Generated Recipe Graph</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <p>
+                    VibeCook (working title) is a cooking app that generates personalized recipes and displays them as flow charts. I started this
+                    little side project together with a former colleague to get some first-hand experience in LLM integration and to
+                    touch up on my slightly rusty full stack skills. Core challenges were LLM-based generation of valid and meaningful
+                    flow diagrams, graph layouting, and deploying a full-stack app with JavaScript frameworks. I also used this
+                    opportunity to explore and test the limits of AI-assisted coding workflows.
+                </p>
+
+                <h2>Recipe Generation</h2>
+
+                <p>
+                    Based on a user prompt, we ask an LLM to generate a recipe in JSON format. A valid recipe contains a graph with
+                    ingredient nodes, action nodes, and a set of edges describing the flow of the cooking process. We decided to
+                    restrict our graphs to have tree structure for simpler layouting: ingredients are leaf nodes, the final dish is the
+                    root node.
+                </p>
+                <p>
+                    I started experimenting with a single-step generation workflow, and got some very encouraging results, but also lots
+                    of fail cases with, for example, terrible or inauthentic recipe ideas or invalid graph connectivity. On a test set of
+                    about 70 recipe prompts, I then started manually tuning the generation procedure and ended up with a three-step
+                    approach.
+                </p>
+
+                <figure class="blog-figure float-right">
+                    <video controls autoplay muted loop playsinline style="width: 100%; height: auto;">
+                        <source src="img/graph_tomato.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </figure>
+
+                <ol>
+                    <li><b>Textual Recipe</b>: As a warm up, we ask the LLM to reflect on aspects such as the origin and history of the dish,
+                    on ingredient selection, preparation techniques, complexity, do’s and don’ts, timing, and other relevant factors; to
+                    then produce a textual description of the recipe in the user’s target language.
+                    </li>
+                    <li>
+                        <b>Mermaid Diagram</b>: Then we try to obtain a valid graph structure in as few tokens as possible (so we can quickly
+                        iterate on errors). We chose Mermaid diagrams due to their compact syntax (e.g. Onions --> Chop_Onions) and because
+                        most LLMs have seen this format a lot in their training data. We run this step in a validation loop: if there is an
+                        issue with the output (e.g. not a tree structure, isolated nodes, etc.) we write descriptive error messages and ask
+                        the LLM to try again.
+                    </li>
+                    <li>
+                        <b>Final JSON</b>: Once we have a valid graph structure, we ask the LLM to translate it to JSON and to fill in
+                        additional info such as detailed instructions per node, ingredient quantities, execution order, etc. Again, we run
+                        this in a validation loop to catch some rare errors.
+                    </li>
+                </ol>
+                <p>
+                    Initially, we used large reasoning models like OpenAI’s o3, but through a lot of experimentation and prompt tuning we
+                    eventually managed to obtain good results with Google’s gemini-2.5-flash-lite. We use its reasoning capabilities only
+                    in the Mermaid diagram step, with a budget of 1000 thinking tokens. If the entire pipeline fails (maximum of 5
+                    iterations per validation loop), we try again with a slightly larger model (gemini-2.5-flash). This has cut the
+                    generation time and cost to about 15 seconds (less than one cent) for an average recipe, with only a few outliers
+                    taking up to a minute (~3 cents). We also found that gemini-2.5-flash-lite seems to have enough knowledge to
+                    accurately reproduce a wide-enough range of complex recipes, so we decided against adding a RAG system retrieving info
+                    from an external recipe database.
+                </p>
+
+                <h2>Icon Generation</h2>
+                <p>
+                    For each node, we generate an icon using OpenAI’s gpt-image-1 model. For visual consistency within a recipe, we also
+                    attach to each image prompt a textual description of the full recipe. This already helps a lot with making
+                    ingredients that appear in multiple icons look similar, but results are not perfect yet. In the future, I’d like to
+                    explore image models that allow (consistent) batch generation.
+                </p>
+                <p>
+                    Unfortunately, image generation is a lot more costly than text generation, with about 25 seconds (0.6 cent) per
+                    image. Additionally, OpenAI imposes a rate limit of 20 images per minute, which I handled by creating a
+                    rate-limit-aware request scheduler. To further cut costs, I built a simple image retrieval system: all images ever
+                    generated are embedded in a vector database (pgvector) based on their text prompt (using OpenAI’s
+                    text-embedding-3-small model). Upon recipe generation, we re-use existing images for close matches (e.g. cosine
+                    similarity > 0.8), while only the remaining images are freshly generated.
+                </p>
+
+                <h2>Graph Layouting</h2>
+
+                <figure class="blog-figure float-right">
+                    <img src="img/layouting_02.jpg" class="responsive-img">
+                    <figcaption>After Heuristic</figcaption>
+                </figure>
+                <figure class="blog-figure float-right">
+                    <img src="img/layouting_01.jpg" class="responsive-img">
+                    <figcaption>Initialization</figcaption>
+                </figure>
+
+                <p>
+                    Before we can display a recipe graph, we need to compute a layout, i.e. assign to each node an (x, y) coordinate. We
+                    decided to arrange nodes on an integer grid and want to (1) minimize total edge length, (2) avoid overlaps, (3) have
+                    edges point only downwards or sideways, and (4) use as few columns as possible to adapt to vertical phone screens.
+                </p>
+                <p>
+                    Since this is actually a pretty hard combinatorial optimization problem, we went with a simple heuristic instead that
+                    works reasonably well in simple cases. We start by finding the longest path from the root node (the final dish) to a
+                    leaf (the first ingredient) and positioning it as a single vertical column (screenshot (a), left). We then enumerate
+                    all other paths from the root and add each one as a separate column. Based on this initial solution, we apply a set
+                    of local operations until convergence. For example, we horizontally flip subtrees to the opposite side of the center
+                    column, move them closer to the center if possible, or add extra vertical spacing if that allows us to use less
+                    horizontal space.
+                </p>
+                <p>
+                    For more complicated graphs, I briefly looked into linear integer programming formulations, but so far, these seemed
+                    too computationally heavy for our use case.
+                </p>
+
+                <h2>App Development</h2>
+
+                <figure class="blog-figure float-right">
+                    <img src="img/recipe_list.jpg" class="responsive-img">
+                </figure>
+
+                <p>
+                    While I had some prior experience in web and app dev (in PHP, C#, Python Django), it’s been ages since I built a full
+                    app. So I used this opportunity to work with JavaScript again and to get to know Node.js and React (Native).
+                </p>
+                <p>
+                    I built a backend using the Node.js Express framework with a Postgres database and Prisma as object-relational
+                    mapping. The backend supports, for example, recipe and image generation with live updates, recipe search, user
+                    management and authentication, as well as a chatbot interface. I also refreshed my experience with Docker containers
+                    and eventually hosted the backend on Fly.io, where I set up a scale-to-zero behavior to save costs during a private
+                    beta with only very few users. Generated images are stored in Fly.io’s S3-compatible Tigris object storage.
+                </p>
+                <p>
+                    Initially, I tried to build separate frontends for web (React) and mobile (React Native) with a shared codebase for
+                    common functionality. However, maintaining this architecture quickly turned into a major slowdown for the development
+                    progress, so ended up abandoning the React frontend and focusing on mobile only. I set up cloud build and deployment
+                    via Expo Application Services and am planning to start a private beta soon, after a few more fixes.
+                </p>
+
+                <h2>AI Coding Assistants</h2>
+                <p>
+                    This project was also a good chance to test LLM-based coding assistants. I had previously worked with GitHub
+                    Copilot, but wanted to try some of the alternatives. I started the project using the Roo Code extension for VSCode
+                    and was really impressed by its built-in agent. It started by planning tasks in a dedicated architect mode and then
+                    initiated a separate session in code mode for each task, to keep context windows short, before returning a summary to
+                    the architect. I also really liked its habit of keeping the user in the loop by asking clarifying questions and
+                    offering buttons with the most likely answers directly in the chat window.
+                </p>
+                <p>
+                    However, due to Roo Code’s bring-your-own-key policy, costs quickly became excessive for a hobby project and I
+                    switched to Cursor. In comparison, I was initially a bit disappointed by Cursor’s agent mode and spent a lot more
+                    time setting up custom rules until I liked the workflow: e.g. “Always propose a plan first.”, “Ask clarifying
+                    questions”, “Wait for my go before any edits”, etc.
+                </p>
+                <p>
+                    In this project, I really wanted to test the bounds of current AI assistants and actually ended up not writing a
+                    single line of code myself. This was an interesting new experience that, for me, completely changed the learning
+                    curve of working with new technologies, frameworks, or languages. Previously, the learning approach often felt
+                    “bottom-up”: We first have to know lots of details about a new programming language before we can even start a small
+                    project with it. Now it feels a lot more “top-down”: We can get the first prototype of our project in minutes and can
+                    then slowly work our way down to the details, when and if we decide to turn our prototype into a robust product. The
+                    new challenge is then of course staying on top of the codebase, maintaining structure and preventing the typical
+                    vibecode chaos. On average, for each day of adding new features I spent about two to three days with cleanup and
+                    restructuring. But even these refactoring days were a great experience, because to me, AI assistants made learning
+                    about common architectural patterns and best practices a lot more accessible.
+                </p>
+
+                <figure class="blog-figure float-right">
+                    <video controls autoplay muted loop playsinline style="width: 100%; height: auto;">
+                        <source src="img/chat_pesto.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </figure>
+
+                <h2>Next Up: Recipe Adaptation</h2>
+
+                <p>
+                    After having used the app for quite a few cooking sessions myself, I realized that I often had a few spontaneous
+                    questions about some of the steps and that I usually wanted to slightly modify the recipe, e.g. by swapping a few
+                    ingredients. To solve both issues, I started building a simple chat bot with the current recipe as context, which was
+                    immediately able to answer recipe-related questions. Next, I’d like to provide the assistant with a function to
+                    autonomously generate adapted recipes based on the user conversation.
+                </p>
+
+                <br><br>
+
+            </article>
+        </div>
+
+        <br><br>
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer grey darken-4">
+        <br>
+        <div class="container grey-text" style="font-size: 0.8rem; ">
+            <div class="row">
+                <div class="col s12 m6 l6">
+                    <h6 class="grey-text text-lighten-2">Contact</h6>
+                    <p>
+                        <i class="tiny material-icons email left" style="margin-right: 0.3rem; margin-top:0.1rem;">mail</i>
+                        <a class="grey-text text-lighten-2" href="mailto:patrick.schmidt1@rwth-aachen.de">patrick.schmidt1@rwth-aachen.de</a>
+                    </p>
+                </div>
+                <div class="col s12 m6 l6">
+                    <h6 class="grey-text text-lighten-2">Copyright</h6>
+                    <p>
+                        © 2025 Patrick Schmidt<br>
+                        Made using <a class="grey-text text-lighten-2" href="http://materializecss.com" target="_blank">Materialize CSS</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <br>
+    </footer>
+
+    <!--  Scripts-->
+    <!--<script src="js/materialize.js"></script>-->
+
+</body>
+
+</html>
