@@ -82,7 +82,14 @@
             }
         }
 
-        
+        /* Style for code tags */
+        code {
+            background-color: #f0f0f0;
+            padding: 0.1rem 0.2rem;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+
     </style>
 
     <!-- Icons -->
@@ -99,7 +106,7 @@
         </div>
     </header>
 
-    <br><br>
+    <br>
 
     <div class="container">
         <div class="section">
@@ -127,7 +134,7 @@
                 </div>
 
                 <p>
-                    VibeCook (working title) is a cooking app that generates personalized recipes and displays them as flow charts. I started this
+                    <i>VibeCook</i> (working title) is a cooking app that generates personalized recipes and displays them as flow charts. I started this
                     little side project together with a former colleague to get some first-hand experience in LLM integration and to
                     touch up on my slightly rusty full stack skills. Core challenges were LLM-based generation of valid and meaningful
                     flow diagrams, graph layouting, and deploying a full-stack app with JavaScript frameworks. I also used this
@@ -158,12 +165,12 @@
 
                 <ol>
                     <li><b>Textual Recipe</b>: As a warm up, we ask the LLM to reflect on aspects such as the origin and history of the dish,
-                    on ingredient selection, preparation techniques, complexity, do’s and don’ts, timing, and other relevant factors; to
-                    then produce a textual description of the recipe in the user’s target language.
+                    on ingredient selection, preparation techniques, complexity, do's and don'ts, timing, and other relevant factors; to
+                    then produce a textual description of the recipe in the user's target language.
                     </li>
                     <li>
                         <b>Mermaid Diagram</b>: Then we try to obtain a valid graph structure in as few tokens as possible (so we can quickly
-                        iterate on errors). We chose Mermaid diagrams due to their compact syntax (e.g. Onions --> Chop_Onions) and because
+                        iterate on errors). We chose Mermaid diagrams due to their compact syntax (e.g. <code>Onions --> Chop_Onions</code>) and because
                         most LLMs have seen this format a lot in their training data. We run this step in a validation loop: if there is an
                         issue with the output (e.g. not a tree structure, isolated nodes, etc.) we write descriptive error messages and ask
                         the LLM to try again.
@@ -175,29 +182,29 @@
                     </li>
                 </ol>
                 <p>
-                    Initially, we used large reasoning models like OpenAI’s o3, but through a lot of experimentation and prompt tuning we
-                    eventually managed to obtain good results with Google’s gemini-2.5-flash-lite. We use its reasoning capabilities only
+                    Initially, we used large reasoning models like OpenAI's <code>o3</code>, but through a lot of experimentation and prompt tuning we
+                    eventually managed to obtain good results with Google's <code>gemini-2.5-flash-lite</code>. We use its reasoning capabilities only
                     in the Mermaid diagram step, with a budget of 1000 thinking tokens. If the entire pipeline fails (maximum of 5
-                    iterations per validation loop), we try again with a slightly larger model (gemini-2.5-flash). This has cut the
-                    generation time and cost to about 15 seconds (less than one cent) for an average recipe, with only a few outliers
-                    taking up to a minute (~3 cents). We also found that gemini-2.5-flash-lite seems to have enough knowledge to
+                    iterations per validation loop), we try again with a slightly larger model (<code>gemini-2.5-flash</code>). This has cut the
+                    generation time and cost to about 15 seconds (less than one cent) for typical recipes, with only a few outliers
+                    taking up to a minute (~3 cents). We also found that <code>gemini-2.5-flash-lite</code> seems to have enough knowledge to
                     accurately reproduce a wide-enough range of complex recipes, so we decided against adding a RAG system retrieving info
                     from an external recipe database.
                 </p>
 
                 <h2>Icon Generation</h2>
                 <p>
-                    For each node, we generate an icon using OpenAI’s gpt-image-1 model. For visual consistency within a recipe, we also
+                    For each node, we generate an icon using OpenAI's <code>gpt-image-1</code> model. For visual consistency within a recipe, we also
                     attach to each image prompt a textual description of the full recipe. This already helps a lot with making
-                    ingredients that appear in multiple icons look similar, but results are not perfect yet. In the future, I’d like to
+                    ingredients that appear in multiple icons look similar, but results are not perfect yet. In the future, I'd like to
                     explore image models that allow (consistent) batch generation.
                 </p>
                 <p>
                     Unfortunately, image generation is a lot more costly than text generation, with about 25 seconds (0.6 cent) per
                     image. Additionally, OpenAI imposes a rate limit of 20 images per minute, which I handled by creating a
                     rate-limit-aware request scheduler. To further cut costs, I built a simple image retrieval system: all images ever
-                    generated are embedded in a vector database (pgvector) based on their text prompt (using OpenAI’s
-                    text-embedding-3-small model). Upon recipe generation, we re-use existing images for close matches (e.g. cosine
+                    generated are embedded in a vector database (pgvector) based on their text prompt (using OpenAI's
+                    <code>text-embedding-3-small</code> model). Upon recipe generation, we re-use existing images for close matches (e.g. cosine
                     similarity > 0.8), while only the remaining images are freshly generated.
                 </p>
 
@@ -219,10 +226,10 @@
                 </p>
                 <p>
                     Since this is actually a pretty hard combinatorial optimization problem, we went with a simple heuristic instead that
-                    works reasonably well in simple cases. We start by finding the longest path from the root node (the final dish) to a
-                    leaf (the first ingredient) and positioning it as a single vertical column (screenshot (a), left). We then enumerate
+                    works reasonably well in most cases. We start by finding the longest path from the root node (the final dish) to a
+                    leaf (the first ingredient) and positioning it as a single vertical column. We then enumerate
                     all other paths from the root and add each one as a separate column. Based on this initial solution, we apply a set
-                    of local operations until convergence. For example, we horizontally flip subtrees to the opposite side of the center
+                    of local operations until convergence. For example, we may horizontally flip subtrees to the opposite side of the center
                     column, move them closer to the center if possible, or add extra vertical spacing if that allows us to use less
                     horizontal space.
                 </p>
@@ -238,7 +245,7 @@
                 </figure>
 
                 <p>
-                    While I had some prior experience in web and app dev (in PHP, C#, Python Django), it’s been ages since I built a full
+                    While I had some prior experience in web and app dev (in PHP, C#, Python Django), it's been ages since I built a full
                     app. So I used this opportunity to work with JavaScript again and to get to know Node.js and React (Native).
                 </p>
                 <p>
@@ -246,7 +253,7 @@
                     mapping. The backend supports, for example, recipe and image generation with live updates, recipe search, user
                     management and authentication, as well as a chatbot interface. I also refreshed my experience with Docker containers
                     and eventually hosted the backend on Fly.io, where I set up a scale-to-zero behavior to save costs during a private
-                    beta with only very few users. Generated images are stored in Fly.io’s S3-compatible Tigris object storage.
+                    beta with only very few users. Generated images are stored in Fly.io's S3-compatible Tigris object storage.
                 </p>
                 <p>
                     Initially, I tried to build separate frontends for web (React) and mobile (React Native) with a shared codebase for
@@ -265,21 +272,20 @@
                     offering buttons with the most likely answers directly in the chat window.
                 </p>
                 <p>
-                    However, due to Roo Code’s bring-your-own-key policy, costs quickly became excessive for a hobby project and I
-                    switched to Cursor. In comparison, I was initially a bit disappointed by Cursor’s agent mode and spent a lot more
-                    time setting up custom rules until I liked the workflow: e.g. “Always propose a plan first.”, “Ask clarifying
-                    questions”, “Wait for my go before any edits”, etc.
+                    However, due to Roo Code's bring-your-own-key policy, costs quickly became excessive for a hobby project and I
+                    switched to Cursor. In comparison, I was initially a bit disappointed by Cursor's agent mode and spent a lot more
+                    time setting up custom rules until I liked the workflow: e.g. "Always propose a plan first.", "Ask clarifying
+                    questions", "Wait for my go before any edits", etc.
                 </p>
                 <p>
                     In this project, I really wanted to test the bounds of current AI assistants and actually ended up not writing a
                     single line of code myself. This was an interesting new experience that, for me, completely changed the learning
                     curve of working with new technologies, frameworks, or languages. Previously, the learning approach often felt
-                    “bottom-up”: We first have to know lots of details about a new programming language before we can even start a small
-                    project with it. Now it feels a lot more “top-down”: We can get the first prototype of our project in minutes and can
-                    then slowly work our way down to the details, when and if we decide to turn our prototype into a robust product. The
-                    new challenge is then of course staying on top of the codebase, maintaining structure and preventing the typical
-                    vibecode chaos. On average, for each day of adding new features I spent about two to three days with cleanup and
-                    restructuring. But even these refactoring days were a great experience, because to me, AI assistants made learning
+                    "bottom-up": We first have to know lots of details about a new programming language before we can even start a small
+                    project with it. Now it feels a lot more "top-down": We can get the first prototype of our project in minutes and can
+                    then slowly work our way down to the details. Of course, the new challenge is then staying on top of the codebase, maintaining structure, and preventing the typical
+                    "vibecode" chaos. On average, for each day of adding new features I spent about two to three days with cleanup and
+                    restructuring. But even these refactoring days were a great experience, because these AI assistants made learning
                     about common architectural patterns and best practices a lot more accessible.
                 </p>
 
@@ -294,9 +300,9 @@
 
                 <p>
                     After having used the app for quite a few cooking sessions myself, I realized that I often had a few spontaneous
-                    questions about some of the steps and that I usually wanted to slightly modify the recipe, e.g. by swapping a few
+                    questions about some of the steps and that I usually wanted to slightly modify the recipe, e.g. by swapping some
                     ingredients. To solve both issues, I started building a simple chat bot with the current recipe as context, which was
-                    immediately able to answer recipe-related questions. Next, I’d like to provide the assistant with a function to
+                    immediately able to answer recipe-related questions. Next, I'd like to provide the assistant with a function to
                     autonomously generate adapted recipes based on the user conversation.
                 </p>
 
