@@ -165,11 +165,11 @@
 
                 <ol>
                     <li><b>Textual Recipe</b>: As a warm-up, we ask the LLM to reflect on aspects such as the origin and history of the dish,
-                    ingredient selection, preparation techniques, complexity, dos and don'ts, timing, and other relevant factors, then
-                    produce a textual description of the recipe in the user's target language.
+                    ingredient selection, preparation techniques, complexity, dos and don'ts, timing, and other relevant factors; before
+                    producing a textual description of the recipe in the user's target language.
                     </li>
                     <li>
-                        <b>Mermaid Diagram</b>: Next, we obtain a valid graph structure in as few tokens as possible (so we can iterate quickly on errors).
+                        <b>Mermaid Diagram</b>: Next, we try to obtain a valid graph structure in as few tokens as possible (so we can iterate quickly on errors).
                         We chose Mermaid diagrams for their compact syntax (e.g. <code>Onions --> Chop_Onions</code>) and because most LLMs have
                         seen this format extensively in their training data. We run this step in a validation loop: if there's an
                         issue with the output (e.g. not a tree structure, isolated nodes, etc.) we write descriptive error messages and ask
@@ -206,7 +206,7 @@
                     image. Additionally, OpenAI imposes a rate limit of 20 images per minute, which I handled by creating a
                     rate-limit-aware request scheduler. To further cut costs, I built a simple image retrieval system: all images ever
                     generated are embedded in a vector database (pgvector) based on their text prompt (using OpenAI's
-                    <code>text-embedding-3-small</code> model). Upon recipe generation, we re-use existing images for close matches (e.g. cosine
+                    <code>text-embedding-3-small</code> model). Upon recipe generation, we re-use existing images for close matches (e.g. when cosine
                     similarity > 0.8), while only the remaining images are freshly generated.
                 </p>
 
@@ -230,10 +230,10 @@
                     Since this is actually a pretty hard combinatorial optimization problem, we went with a simple heuristic instead that
                     works reasonably well in most cases. We start by finding the longest path from the root node (the final dish) to a
                     leaf (the first ingredient) and positioning it as a single vertical column. We then enumerate
-                    all other paths from the root and add each one as a separate column. Based on this initial solution, we apply a set
+                    all other paths from the root and add each one as a separate column (see left screenshot). Based on this initial solution, we apply a set
                     of local operations until convergence. For example, we may horizontally flip subtrees to the opposite side of the center
                     column, move them closer to the center when possible, or add extra vertical spacing if that reduces
-                    horizontal space.
+                    horizontal space (see right screenshot).
                 </p>
                 <p>
                     For more complicated graphs, I briefly looked into linear integer programming formulations, but so far these seemed
@@ -248,7 +248,7 @@
 
                 <p>
                     While I had some prior experience in web and app development (PHP, C#, Python/Django), it had been ages since I built a full
-                    app. I used this opportunity to work with JavaScript again and to get to know Node.js and React (Native).
+                    app. I used this opportunity to learn some JavaScript again and to get to know Node.js and React (Native).
                 </p>
                 <p>
                     I built a backend using the Node.js Express framework with a Postgres database and Prisma as object-relational
